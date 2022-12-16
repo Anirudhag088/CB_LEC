@@ -1,0 +1,62 @@
+package Lec_14;
+import java.util.*;
+public class spiral_display {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int m = scn.nextInt();
+        int [][] arr = new int[n][m];
+       
+        for(int i = 0; i < arr.length; i++) {
+        	for(int j = 0; j < arr[0].length; j++) {
+        		arr[i][j] = scn.nextInt();
+        	}
+        }
+        spiraldisplay(arr, n, m);
+        
+	}
+        
+     public static void spiraldisplay (int [][] arr, int n, int m){
+      
+      int minr = 0;
+      int maxr = arr.length - 1;
+      int minc = 0;
+      int maxc = arr[0].length - 1;
+      int total = n*m;
+      int count = 0;
+      
+      
+      
+      while(count < total) {
+    	  for(int i = minc; i <= maxc; i++) {
+        	  System.out.print(arr[minr][i] + " ");
+        	  count++;
+          }
+          minr++;
+          
+          for(int i = minr; i <= maxr; i++) {
+        	  System.out.print(arr[i][maxc] + " ");
+        	  count++;
+          }
+          maxc--;
+         
+          for(int i = maxc; i >= minc; i--) {
+        	  System.out.print(arr[maxr][i] + " ");
+        	  count++;
+          }
+          maxr--;
+          
+          for(int i = maxr; i >= minr; i--) {
+        	  System.out.print(arr[i][minc] + " ");
+        	  count++;
+          }
+          minc++;
+      }
+      
+      
+     }
+	
+
+}
